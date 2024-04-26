@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ManageCource from './screens/ManageCource';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import RecentCourses from './screens/RecentCourses';
-import AllCourses from './screens/AllCourses';
+import RecentCources from './screens/RecentCources';
+import AllCources from './screens/AllCources';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 
@@ -35,8 +35,8 @@ function CourseOverview() {
       })}
     >
       <Tab.Screen
-        name="RecentCourses"
-        component={RecentCourses}
+        name="RecentCources"
+        component={RecentCources}
         options={{
           title: 'Yakın Zamanda Kaydolunanlar',
           tabBarLabel: 'Yakın Zamanda',
@@ -46,8 +46,8 @@ function CourseOverview() {
         }}
       />
       <Tab.Screen
-        name="AllCourses"
-        component={AllCourses}
+        name="AllCources"
+        component={AllCources}
         options={{
           title: 'Tüm Kurslar',
           tabBarLabel: 'Tüm Kurslar',
