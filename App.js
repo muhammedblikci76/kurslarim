@@ -2,10 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ManageCource from './screens/ManageCource';
+import ManageCourse from './screens/ManageCourse';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import RecentCources from './screens/RecentCources';
-import AllCources from './screens/AllCources';
+import RecentCourses from './screens/RecentCourses';
+import AllCourses from './screens/AllCourses';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 
@@ -13,6 +13,7 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function CourseOverview() {
+ 
   return (
     <Tab.Navigator
       screenOptions={({ navigation }) => ({
@@ -24,7 +25,7 @@ function CourseOverview() {
           <Pressable
             style={({ pressed }) => pressed && styles.pressed}
             onPress={() => {
-              navigation.navigate('ManageCource');
+              navigation.navigate('ManageCourse');
             }}
           >
             <View style={styles.iconContainer}>
@@ -35,8 +36,8 @@ function CourseOverview() {
       })}
     >
       <Tab.Screen
-        name="RecentCources"
-        component={RecentCources}
+        name="RecentCourses"
+        component={RecentCourses}
         options={{
           title: 'Yakın Zamanda Kaydolunanlar',
           tabBarLabel: 'Yakın Zamanda',
@@ -46,8 +47,8 @@ function CourseOverview() {
         }}
       />
       <Tab.Screen
-        name="AllCources"
-        component={AllCources}
+        name="AllCourses"
+        component={AllCourses}
         options={{
           title: 'Tüm Kurslar',
           tabBarLabel: 'Tüm Kurslar',
@@ -69,7 +70,7 @@ export default function App() {
           component={CourseOverview}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="ManageCource" component={ManageCource} />
+        <Stack.Screen name="ManageCourse" component={ManageCourse} />
       </Stack.Navigator>
     </NavigationContainer>
   );

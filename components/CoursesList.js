@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-export default function RecentCourses() {
+export default function CoursesList() {
   return (
     <View>
-      <Text>RecentCourses</Text>
+      <Text>CoursesList</Text>
     </View>
   );
 }
