@@ -1,11 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, FlatList } from 'react-native';
 import React from 'react';
+import CourseItem from './CourseItem';
 
-export default function CoursesList() {
+function renderCourseItem(itemData) {
+  return <CourseItem {...itemData.item} />;
+}
+
+export default function CoursesList({ courses }) {
   return (
-    <View>
-      <Text>CoursesList</Text>
-    </View>
+    <FlatList
+      data={courses}
+      keyExtractor={(item) => item.id}
+      renderItem={renderCourseItem}
+    />
   );
 }
 

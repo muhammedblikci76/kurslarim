@@ -64,7 +64,7 @@ export default function Courses({ coursesPeriod }) {
   return (
     <View style={styles.container}>
       <CoursesSummary courses={COURSES} periodName={coursesPeriod} />
-      <CoursesList />
+      <CoursesList courses={COURSES} />
     </View>
   );
 }
