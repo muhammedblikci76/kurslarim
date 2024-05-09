@@ -13,7 +13,6 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function CourseOverview() {
- 
   return (
     <Tab.Navigator
       screenOptions={({ navigation }) => ({
