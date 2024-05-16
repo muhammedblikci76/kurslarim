@@ -2,8 +2,11 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { useLayoutEffect } from 'react';
 import { EvilIcons } from '@expo/vector-icons';
+import { useContext } from 'react';
+import { CoursesContext } from '../store/coursesContext';
 
 export default function ManageCourse({ route, navigation }) {
+  const coursesContext = useContext(CoursesContext);
   const courseId = route.params?.courseId;
   let isEditing = false;
 
@@ -18,10 +21,28 @@ export default function ManageCourse({ route, navigation }) {
   }, [navigation, isEditing]);
 
   function deleteCourse() {
+    coursesContext.deleteCourse(courseId);
     navigation.goBack();
   }
 
   function cancelHandler() {
+    navigation.goBack();
+  }
+
+  function addOrUpdateHandler() {
+    if (isEditing) {
+      coursesContext.updateCourse(courseId, {
+        description: 'Güncellenen Kurs',
+        amount: 169,
+        date: new Date(),
+      });
+    } else {
+      coursesContext.addCourse({
+        description: 'Eklenen Kurs',
+        amount: 169,
+        date: new Date(),
+      });
+    }
     navigation.goBack();
   }
 
@@ -33,7 +54,7 @@ export default function ManageCourse({ route, navigation }) {
             <Text style={styles.cancelText}>İptal Et</Text>
           </View>
         </Pressable>
-        <Pressable>
+        <Pressable onPress={addOrUpdateHandler}>
           <View style={styles.addOrDelete}>
             <Text style={styles.addOrDeleteText}>
               {isEditing ? 'Güncelle' : 'Ekle'}
