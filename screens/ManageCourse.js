@@ -4,6 +4,7 @@ import { useLayoutEffect } from 'react';
 import { EvilIcons } from '@expo/vector-icons';
 import { useContext } from 'react';
 import { CoursesContext } from '../store/coursesContext';
+import CourseForm from '../components/CourseForm';
 
 export default function ManageCourse({ route, navigation }) {
   const coursesContext = useContext(CoursesContext);
@@ -48,6 +49,7 @@ export default function ManageCourse({ route, navigation }) {
 
   return (
     <View style={styles.container}>
+      <CourseForm />
       <View style={styles.buttons}>
         <Pressable onPress={cancelHandler}>
           <View style={styles.cancel}>
