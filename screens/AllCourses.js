@@ -6,7 +6,7 @@ import { CoursesContext } from '../store/coursesContext';
 
 export default function AllCourses() {
   const coursesContext = useContext(CoursesContext);
-
+  console.log(coursesContext.courses);
   return (
     <Courses
       courses={coursesContext.courses}
